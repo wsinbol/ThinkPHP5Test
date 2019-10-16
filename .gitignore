@@ -4,7 +4,8 @@ composer.lock
 thinkphp
 runtime
 public
-verdor
+vendor
+.gitignore
 *.yml
 build.php
 CHANGELOG.md
