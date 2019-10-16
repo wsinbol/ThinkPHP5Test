@@ -1,0 +1,14 @@
+.idea
+composer.lock
+*.log
+thinkphp
+runtime
+public
+verdor
+*.yml
+build.php
+CHANGELOG.md
+composer.json
+LICENSE.txt
+think
+
