@@ -1,0 +1,32 @@
+<html>
+    <title>表单</title>
+    <body>
+        <form id="submit_form" action="{:url('index/test_token/check')}" method="POST">
+            <input type='text' name="user_name" value="" />
+            <input type='password' name='password' />
+            <input type="hidden" id="__token__" name="__hash__" value="{$Request.token.__hash__}" />
+            <input type="hidden" name="__form_verify__" value="{$form_verify}" />
+            <a href="javascript:void(0)" onclick="doSubmit()">OK</a>
+        </form>
+    </body>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        function doSubmit(){
+            var msg = '';
+            $.ajax({
+                url: "{:url('index/test_token/check')}",
+                type: "post",
+                dataType: "json",
+                data: $('#submit_form').serialize(),
+                success: function(xhr){
+                    for(i in xhr['msg']){
+                        msg += xhr['msg'][i];
+                    }
+                    alert(msg);
+                    $('#__token__').val(xhr['token']);
+                }
+            });
+        }
+
+    </script>
+</html>
