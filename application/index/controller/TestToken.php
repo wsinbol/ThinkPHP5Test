@@ -4,12 +4,13 @@
  * @Date: 2019-10-21 09:30:44
  * @Author: Wong Symbol
  * @LastEditors: Wong Symbol
- * @LastEditTime: 2019-10-21 15:02:43
+ * @LastEditTime: 2019-11-05 16:22:56
  */
 namespace app\index\controller;
 
 use think\Controller;
 use think\Validate;
+use think\Session;
 
 class TestToken extends Controller{
     /**
@@ -19,7 +20,7 @@ class TestToken extends Controller{
      */
     public function form(){
         $form_verify = mt_rand(0,1000000);
-        session('form_verify', $form_verify);
+        Session::set('form_verify', $form_verify);
         $this->assign('form_verify', $form_verify);
         return $this->fetch();
         // return view();
@@ -43,7 +44,7 @@ class TestToken extends Controller{
             ]);
 
             $validate->extend('formVerify', function($value){
-                return session('form_verify') == $value ? true : '表单来源非法';
+                return Session::get('form_verify') == $value ? true : '表单来源非法';
             });
             
             $result = $validate->check($form_data);
@@ -51,7 +52,7 @@ class TestToken extends Controller{
             if(!$validate->batch()->check($form_data)){
                 return ['msg' => $validate->getError(),'token' => request()->token()];
             }else{
-                session('form_verify', null);
+                Session::delete('form_verify');
                 return ['msg' => 'Success'];
             }
         }
