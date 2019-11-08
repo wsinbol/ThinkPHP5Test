@@ -17,6 +17,7 @@ return [
     ]
      */
     // 前台路由书写形式：<a href="{:url('@admin/index')}">{:url('@admin/index')}[]</a>
+    // v1.read 表示 多级控制器调用形式
     '[admin]' => [
         'index' => ['admin/v1.read/index'],
         'read' => ['admin/v1.read/read'],
@@ -32,7 +33,6 @@ return [
     ]
     */
     '[index]' => [
-        
         'index' => ['v1.index/index'],
         'read' => ['v1.index/read'],
         '/' => ['v1.index/index'], // 地址缺省时的路由策略
