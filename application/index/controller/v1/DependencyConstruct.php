@@ -6,7 +6,7 @@
  * @Date: 2019-11-08 22:48:45
  * @Author: Wong Symbol
  * @LastEditors: Wong Symbol
- * @LastEditTime: 2019-11-09 01:26:26
+ * @LastEditTime: 2019-11-10 14:28:57
  */
 namespace app\index\controller\v1;
 
@@ -26,6 +26,7 @@ class DependencyConstruct extends Base{
      * 以类的属性形式创建 类 的实例， 并在初始化函数中对其赋值
      */
     protected $user;
+    protected $email;
 
     /**
      * 此方法可以直接使用，但不是本文重点
@@ -39,9 +40,10 @@ class DependencyConstruct extends Base{
     public function _initialize(){
         parent::_initialize(); // 当前类的_initialize覆盖父类同名函数，所以此处显示调用
         $this->user = Request::instance()->user;
+        $this->email = Request::instance()->email;
     }
 
     public function show(){
-        return $this->user->getUser();
+        return $this->user->getUser() . $this->email->getEmail();
     }
 }

@@ -11,3 +11,10 @@
 
 // 应用公共文件
 
+use think\Hook;
+
+// 注册钩子
+Hook::add('is_login',[
+    '\app\index\behavior\Index',
+]);
+

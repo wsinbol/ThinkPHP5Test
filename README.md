@@ -16,3 +16,10 @@
 - 操作方法中的依赖注入：application\index\controller\v1\DependencyInjection.php
 - 请求对象的属性注入方式：application\index\controller\v1\DependencyConstruct.php
 - 测试URL：http://localhost/tp5test/public/index.php/dependency_construct/show.html
+
+## 行为&钩子
+- 自定义行为：application\index\behavior\Index.php
+- 钩子的注册：application\common.php (官方推荐方式，其实只要放在监听位置之前都是OK的)
+- 钩子的监听：application\index\controller\v1\Base.php
+- 测试URL：http://localhost/tp5test/public/index.php/index/read
+- 配置文件方式绑定行为：application\tags.php
