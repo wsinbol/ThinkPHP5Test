@@ -6,7 +6,7 @@
  * @Date: 2019-11-08 22:48:45
  * @Author: Wong Symbol
  * @LastEditors: Wong Symbol
- * @LastEditTime: 2019-11-09 01:17:11
+ * @LastEditTime: 2019-11-09 01:26:26
  */
 namespace app\index\controller\v1;
 
@@ -17,7 +17,8 @@ use think\Controller;
 
 /**
  * 通过 架构函数 注入对象
- * 这样做不需要重复实例化
+ * 这样做不需要重复实例化，而且作用域是整个类
+ * 而 函数方法注入 形式则作用在函数内
  */
 class DependencyConstruct extends Base{
     

@@ -15,3 +15,4 @@
 
 - 操作方法中的依赖注入：application\index\controller\v1\DependencyInjection.php
 - 请求对象的属性注入方式：application\index\controller\v1\DependencyConstruct.php
+- 测试URL：http://localhost/tp5test/public/index.php/dependency_construct/show.html
