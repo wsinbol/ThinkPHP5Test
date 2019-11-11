@@ -4,7 +4,7 @@
  * @Date: 2019-11-07 11:45:55
  * @Author: Wong Symbol
  * @LastEditors: Wong Symbol
- * @LastEditTime: 2019-11-10 23:13:38
+ * @LastEditTime: 2019-11-10 23:57:23
  */
 
 
@@ -22,7 +22,7 @@ class Base extends Controller{
         $request->user = new \app\index\model\User;
         $request->email = new \app\index\model\Email;
 
-        //钩子的注册在application\common.php中
+        //钩子的注册在application\common.php中，也可以在此处注册
 
         // 监听钩子，并得到钩子处理后的结果，返回的是数组类型
         $rs = Hook::listen('is_login', $request, $extra = ["name" => "wang", "age" => 10]);
