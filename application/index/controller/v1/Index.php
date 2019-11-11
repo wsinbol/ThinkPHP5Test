@@ -4,15 +4,16 @@
  * @Date: 2019-11-07 11:45:55
  * @Author: Wong Symbol
  * @LastEditors: Wong Symbol
- * @LastEditTime: 2019-11-10 21:56:21
+ * @LastEditTime: 2019-11-11 15:11:46
  */
-
 
 namespace app\index\controller\v1;
 use think\Controller;
 use think\Route;
 use think\Hook;
 use think\Request;
+use think\Cookie;
+use think\Cache;
 
 /**
  * Base 不需要use
@@ -33,10 +34,17 @@ class Index extends Base{
 
     public function index(){
         echo $this->user->getUser();
-        return 'v1 hello';
+        
+        Cookie::set('user_name', 'wang', 0);
+        // 前端模板的文件路径也需要添加版本号
+        return $this->fetch();
+        
+        // return 'v1 hello';
     }
 
     public function read(){
+        echo Cookie::get('user_name') . '<br />';
+        
         return 'v1 read';
     }
 }
