@@ -4,7 +4,7 @@
  * @Date: 2019-11-07 11:45:55
  * @Author: Wong Symbol
  * @LastEditors: Wong Symbol
- * @LastEditTime: 2019-11-11 15:11:46
+ * @LastEditTime: 2019-11-18 21:11:50
  */
 
 namespace app\index\controller\v1;
@@ -14,6 +14,7 @@ use think\Hook;
 use think\Request;
 use think\Cookie;
 use think\Cache;
+use think\Log;
 
 /**
  * Base 不需要use
@@ -44,7 +45,6 @@ class Index extends Base{
 
     public function read(){
         echo Cookie::get('user_name') . '<br />';
-        
         return 'v1 read';
     }
 }

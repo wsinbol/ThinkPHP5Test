@@ -23,3 +23,38 @@
 - 钩子的监听：application\index\controller\v1\Base.php
 - 测试URL：http://localhost/tp5test/public/index.php/index/read
 - 配置文件方式绑定行为：application\tags.php
+
+## 日志
+- 日志配置文件：application\config.php
+- 关闭日志方式: 'log' => ['type' => 'test'],
+- 日志驱动：
+    - File驱动：file方式记录的日志文件会自动生成日期子目录
+    - Socket驱动
+- 日志写入
+    - Log::record() 记录日志信息到内存
+    - Log::save() 把保存在内存中的日志信息（用指定的记录方式）写入
+    - Log::write() 实时写入一条日志信息
+- 日志级别
+    - log 常规日志，用于记录日志
+    - error 错误，一般会导致程序的终止
+    - notice 警告，程序可以运行但是还不够完美的错误
+    - info 信息，程序输出信息
+    - debug 调试，用于调试信息
+    - sql SQL语句，用于SQL记录，只在数据库的调试模式开启时有效
+- 单文件日志 日志文件不再区分日期文件写入，而是统一写入到 single.log 文件中。
+```
+'log'   => [
+    'type'  => 'File',
+    // 日志记录级别，使用数组表示
+    'single' => true,
+],
+```
+
+- 独立日志 仅支持File类型的日志驱动，设置后，就会单独生成error 和 sql两个类型的日志文件，主日志文件中将不再包含这两个级别的日志信息。
+```
+'log'   => [
+    'type'          => 'file', 
+    // error和sql日志单独记录
+    'apart_level'   =>  ['error','sql'],
+],
+```

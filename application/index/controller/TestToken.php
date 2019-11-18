@@ -4,7 +4,7 @@
  * @Date: 2019-10-21 09:30:44
  * @Author: Wong Symbol
  * @LastEditors: Wong Symbol
- * @LastEditTime: 2019-11-05 16:22:56
+ * @LastEditTime: 2019-11-18 20:52:43
  */
 namespace app\index\controller;
 
@@ -23,7 +23,6 @@ class TestToken extends Controller{
         Session::set('form_verify', $form_verify);
         $this->assign('form_verify', $form_verify);
         return $this->fetch();
-        // return view();
     }
     
     /**

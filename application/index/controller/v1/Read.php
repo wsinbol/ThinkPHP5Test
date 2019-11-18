@@ -4,7 +4,7 @@
  * @Date: 2019-11-07 11:45:55
  * @Author: Wong Symbol
  * @LastEditors: Wong Symbol
- * @LastEditTime: 2019-11-10 22:03:10
+ * @LastEditTime: 2019-11-18 21:10:21
  */
 
 
@@ -37,6 +37,7 @@ class Read extends Base{
     }
 
     public function read(){
-        return 'v1 read';
+        
+        return 'v1 read!';
     }
 }
