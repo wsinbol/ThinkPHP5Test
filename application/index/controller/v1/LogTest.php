@@ -3,8 +3,8 @@
  * @Description: 日志类
  * @Date: 2019-11-18 21:12:02
  * @Author: Wong Symbol
- * @LastEditors: Wong Symbol
- * @LastEditTime: 2019-11-18 21:42:07
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2019-11-19 10:24:28
  */
 
 namespace app\index\controller\v1;
@@ -13,6 +13,11 @@ use think\Log;
 use think\Controller;
 
 class LogTest extends Controller{
+    /**
+     * @description: 
+     * @param {type} 
+     * @return: 
+     */
     public function index(){
         Log::init([
             'type'  =>  'File',

@@ -1,8 +1,13 @@
-
 # ThinkPHP 5.0 Test
 
 - 仅包括application和extend目录下文件！
 - 请在本地部署使用！
+
+## 类库的引入
+- 引入方式：application\index\controller\ImportPackage.php
+
+## 表单令牌
+- Token的渲染与更新：application\index\controller\TestToken.php
 
 ## 路由
 - 路由文件配置文件：application\route.php
@@ -14,6 +19,7 @@
 > 依赖注入（Dependency Injection，简称DI）是用于实现控制反转（Inversion of Control，简称IoC）的最常见的方式之一，而控制反转的目的是为了更好的解耦。
 
 - 操作方法中的依赖注入：application\index\controller\v1\DependencyInjection.php
+- 操作方法中的参数绑定：application\index\controller\ParamBind.php
 - 请求对象的属性注入方式：application\index\controller\v1\DependencyConstruct.php
 - 测试URL：http://localhost/tp5test/public/index.php/dependency_construct/show.html
 

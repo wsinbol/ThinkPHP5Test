@@ -13,10 +13,12 @@
  * #1
  * 指定版本的通用路由
  */
+/*
 return [
     ':controller/:function' => 'v1.:controller/:function',
 ];
 exit();
+*/
 
 /**
  * #2
