@@ -34,11 +34,10 @@ class TestToken extends Controller{
     public function check(){
         if(request()->isPost()){
             $form_data = input();
-
             $validate = new Validate([
                 'user_name' => 'require|min:3',
                 'password' => 'require|min:3',
-                '__token__' => 'token',
+                '__token__' => 'require|token',
                 '__form_verify__' => 'formVerify'
             ]);
 
@@ -46,9 +45,10 @@ class TestToken extends Controller{
                 return Session::get('form_verify') == $value ? true : '表单来源非法';
             });
             
-            $result = $validate->check($form_data);
             // batch 批量验证，返回错误信息的数组
             if(!$validate->batch()->check($form_data)){
+            	// 不推荐使用tp5的跳转方式
+            	// $this->error($validate->getError(), null, ['token' => $this->request->token()]);
                 return ['msg' => $validate->getError(),'token' => request()->token()];
             }else{
                 Session::delete('form_verify');

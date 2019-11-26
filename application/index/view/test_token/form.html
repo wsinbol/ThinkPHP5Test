@@ -4,7 +4,7 @@
         <form id="submit_form" action="{:url('index/test_token/check')}" method="POST">
             <input type='text' name="user_name" value="" />
             <input type='password' name='password' />
-            <input type="hidden" id="__token__" name="__hash__" value="{$Request.token.__hash__}" />
+            {:token()}
             <input type="hidden" name="__form_verify__" value="{$form_verify}" />
             <a href="javascript:void(0)" onclick="doSubmit()">OK</a>
         </form>
@@ -23,7 +23,12 @@
                         msg += xhr['msg'][i];
                     }
                     alert(msg);
-                    $('#__token__').val(xhr['token']);
+                    // var token = xhr.getResponseHeader("token"); // 将success 替换成 complete后才会生效，否则使用下面的方式
+                    var token = xhr['token'];
+                    if (token) {
+                        $("input[name='__token__']").val(token);
+                    }
+                    
                 }
             });
         }
